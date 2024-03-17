@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "poetry-demo"
+name = "integer-sum"
 version = "0.1.0"
 description = ""
 authors = ["G.Silvestri <giulio.silve92@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11.8"
+click = "^8.1.7"
 
 
 [build-system]
