@@ -1,7 +1,7 @@
 import unittest
 from unittest import mock
-import mathoperator.operator as op
-import dosum
+import mathoperator.sumoperator as op
+import integer_operation.dosum as dosum
 from click.testing import CliRunner
 
 class TestDosum(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestDosum(unittest.TestCase):
 
     def test_dosum_click_parse_only_integer(self):
         runner=CliRunner()
-        result=runner.invoke(dosum.main,"--nums 1.0 2")
+        result=runner.invoke(dosum.main,"--nums 0.1 2")
         self.assertEqual(result.exit_code,2)
 
         result2=runner.invoke(dosum.main,"--nums pluto 2")

@@ -4,3 +4,7 @@
 # python
 *.pyc
 __pycache__/
+
+#poetry
+*.tar.gz
+*.whl

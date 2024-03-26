@@ -1,5 +1,5 @@
 import click
-import mathoperator.operator as op
+import mathoperator.sumoperator as op
 
 @click.command()
 @click.option('--nums',
@@ -9,8 +9,8 @@ import mathoperator.operator as op
               help='Two integer numbers to sum.')
 def main(nums):
     a,b=nums
-    my_instance=op.Operator(a,b)
-    print(my_instance.get_sum())
+    oper=op.SumOperator()
+    print(oper.operation([a,b]))
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "integer-sum"
+name = "integer-operation"
 version = "0.1.0"
 description = ""
 authors = ["G.Silvestri <giulio.silve92@gmail.com>"]
