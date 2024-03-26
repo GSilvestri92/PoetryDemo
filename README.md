@@ -4,4 +4,4 @@ This repository is a collection of of python projects/exercises made to acquire 
 
 Each project will have its own readme reachable directly from the main one.
 ## Modules List
-+ [Integer sum with unit tests](https://github.com/GSilvestri92/PoetryDemo/blob/master/integer-sum/README.md)
++ [Integer operation with unit tests](https://github.com/GSilvestri92/PoetryDemo/blob/master/integer-operation/README.md)
