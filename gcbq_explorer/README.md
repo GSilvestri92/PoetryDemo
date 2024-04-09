@@ -1,11 +1,11 @@
-# integer-operation
+# gcbq_explorer
 
-This simple project involves summing two integers.
-The following sections will briefly describe each package.
+This application will provide a CLI to check for Google Cloud BigQuery table/dataset existence and eventually print some of their attributes.
 
-## integer_operation
-  Main module that takes two integer numbers as input and outputs their sum
-## mathoperator
-  Package with a single Operator abstract class and sum implementation
-## tests
-  Test package with unit tests for both the main module and the SumOperator class.
+## Architecture
+
+![Class Diagram](https://github.com/GSilvestri92/PoetryDemo/gcbq_explorer/doc/gcbq_explorer_ark.jpg)
+
+## Class Diagram
+
+![Class Diagram](https://github.com/GSilvestri92/PoetryDemo/gcbq_explorer/doc/gcbq_explorer_class.jpg)
