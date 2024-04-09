@@ -4,8 +4,8 @@ This application will provide a CLI to check for Google Cloud BigQuery table/dat
 
 ## Architecture
 
-![Class Diagram](https://github.com/GSilvestri92/PoetryDemo/gcbq_explorer/doc/gcbq_explorer_ark.jpg)
+![Architecture](doc/gcbq_explorer_ark.jpg)
 
 ## Class Diagram
 
-![Class Diagram](https://github.com/GSilvestri92/PoetryDemo/gcbq_explorer/doc/gcbq_explorer_class.jpg)
+![Class Diagram](doc/gcbq_explorer_class.jpg)
