@@ -8,3 +8,6 @@ __pycache__/
 #poetry
 *.tar.gz
 *.whl
+
+#auth
+secret/
