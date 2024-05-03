@@ -16,20 +16,7 @@ def dataset_exists(dataset_id):
         return dataset
     return None
 
-@click.command()
-@click.option('--id',
-              required=True,
-              help='Full table id. Format: project.dataset.table')
-@click.option('--verbosity',
-              default='INFO',
-              help='Set logging level')
-def print_table_properties(table_id,verbosity):
-
-    log.basicConfig(
-    format='%(asctime)s -- %(levelname)s:%(message)s',
-    level=str(verbosity).upper(),
-    datefmt='%Y-%m-%d %H:%M:%S',
-    stream=sys.stdout)
+def print_table_properties(table_id):
 
     log.info("Requesting table '{}' ".format(table_id))
     table=table_exists(table_id)
@@ -45,23 +32,10 @@ def print_table_properties(table_id,verbosity):
         print("Description: {}".format(table.get_description()))
         print("Rows: {}".format(table.get_rows()))
 
-@click.command()
-@click.option('--id',
-              required=True,
-              help='Full dataset id. Format: project.dataset')
-@click.option('--verbosity',
-              default='INFO',
-              help='Set logging level')
-def print_dataset_properties(dataset_id,verbosity):
-
-    log.basicConfig(
-    format='%(asctime)s -- %(levelname)s:%(message)s',
-    level=str(verbosity).upper(),
-    datefmt='%Y-%m-%d %H:%M:%S',
-    stream=sys.stdout)
+def print_dataset_properties(dataset_id):
 
     log.info("Requesting dataset '{}' ".format(dataset_id))
-    dataset=table_exists(dataset_id)
+    dataset=dataset_exists(dataset_id)
     log.debug("Result is object '{}' ".format(dataset))
 
     if dataset is None:
@@ -72,24 +46,29 @@ def print_dataset_properties(dataset_id,verbosity):
         print("Tables: {}".format(dataset.get_tables()))
         print("Labels: {}".format(dataset.get_labels()))
 
+@click.command()
+@click.option('--type',
+              required=True,
+              type=click.Choice(['DATASET', 'TABLE'], case_sensitive=False),
+              help='Specify dataset or table')
+@click.option('--id',
+              required=True,
+              help='Full dataset/table id. Format: project.dataset.table')
+@click.option('--verbosity',
+              default='INFO',
+              help='Set logging level')
+def main(type,id,verbosity):
+    
+    log.basicConfig(
+    format='%(asctime)s -- %(levelname)s:%(message)s',
+    level=str(verbosity).upper(),
+    datefmt='%Y-%m-%d %H:%M:%S',
+    stream=sys.stdout)
 
-print_table_properties("training-gcp-309207.dataset_1.company_ris")
+    if type=="DATASET":
+        print_dataset_properties(id)
+    if type=="TABLE":
+        print_table_properties(id)
 
-
-t=BigQueryTable("training-gcp-309207.dataset_1.company_ris")
-print(t.get_project_name())
-print(t.get_dataset_name())
-print(t.get_table_name())
-print(t.get_schema())
-print(t.get_description())
-print(t.get_rows())
-
-
-print_dataset_properties("training-gcp-309207.dataset_1")
-
-d=BigQueryDataset("training-gcp-309207.dataset_1")
-print(d.get_project_name())
-print(d.get_dataset_name())
-print(d.get_tables())
-print(d.get_labels())
-
+if __name__ == "__main__":
+    main()

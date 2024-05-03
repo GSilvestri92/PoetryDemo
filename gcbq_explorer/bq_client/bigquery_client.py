@@ -1,4 +1,3 @@
-import os
 from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 
@@ -7,7 +6,6 @@ class BigQueryClient():
     __client= None
 
     def __init__(self):
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(os.path.dirname(os.path.dirname(__file__)),'secret/auth.json')
         self.__client = bigquery.Client()
 
     def get_table(self,table_id):
