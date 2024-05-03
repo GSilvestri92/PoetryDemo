@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "gcbq-explorer"
+version = "0.1.0"
+description = ""
+authors = ["G.Silvestri <giulio.silve92@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11.8"
+click = "^8.1.7"
+google-cloud-bigquery = "3.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
