@@ -13,7 +13,7 @@ class BigQueryClient():
             table=self.__client.get_table(table_id)  # Make an API request.
             return table
         except NotFound:
-            return None 
+            return None
 
     def get_dataset(self,dataset_id):
         try:

@@ -13,9 +13,16 @@ class TestMain(unittest.TestCase):
     def test_dataset_nonexisting_output(self):
         runner=CliRunner()
         result=runner.invoke(check_existence.main,"--type DATASET --id noproj.nodataset")
-
         self.assertEqual(result.exit_code,0)
         self.assertEqual(result.output,"Dataset does not exist\n")
+
+    def test_dataset_exist(self):
+        result=check_existence.dataset_exists("training-gcp-309207.dataset_1")
+        self.assertEqual(result.get_dataset_name(),"dataset_1")
+
+    def test_dataset_not_exist(self):
+        result=check_existence.dataset_exists("training-gcp-309207.dataset_2")
+        self.assertEqual(result,None)
     
     def test_table_existing_output(self):
         runner=CliRunner()

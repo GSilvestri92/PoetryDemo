@@ -55,7 +55,7 @@ def print_dataset_properties(dataset_id):
               required=True,
               help='Full dataset/table id. Format: project.dataset.table')
 @click.option('--verbosity',
-              default='INFO',
+              default='WARNING',
               help='Set logging level')
 def main(type,id,verbosity):
     
