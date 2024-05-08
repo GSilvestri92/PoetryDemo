@@ -25,4 +25,4 @@ class BigQueryClient():
                     tables_id.append(table.table_id)       
             return dataset,tables_id
         except NotFound:
-            return None
+            return None,None

@@ -1,6 +1,4 @@
 import unittest
-from unittest import mock
-import mathoperator.sumoperator as op
 import integer_operation.dosum as dosum
 from click.testing import CliRunner
 
