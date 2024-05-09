@@ -14,7 +14,7 @@ class TestMain(unittest.TestCase):
          mock_table.return_value.get_description.return_value="mock_des"
          mock_table.return_value.get_rows.return_value="20"
          runner=CliRunner()
-         result=runner.invoke(check_existence.main,"--type TABLE --id training-gcp-309207.dataset_1.company_ris")
+         result=runner.invoke(check_existence.main,"--type TABLE --id project_1.dataset_1.table_1")
 
          self.assertEqual(result.exit_code,0)
          self.assertEqual(result.output,"Project: project_1\nDataset: dataset_1\nTable: table_1\nSchema: mock_schema\nDescription: mock_des\nRows: 20\n")
@@ -41,7 +41,7 @@ class TestMain(unittest.TestCase):
     def test_table_not_exist(self,mock_table):
         mock_table.return_value.get_project_name.return_value=None
         result=check_existence.table_exists("proj1.dataset_1.table_1")
-        self.assertEqual(result,None)    
+        self.assertEqual(result,None)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
